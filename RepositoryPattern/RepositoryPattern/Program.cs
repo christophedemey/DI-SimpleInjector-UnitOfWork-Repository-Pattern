@@ -73,10 +73,7 @@ namespace RepositoryPattern
         {
             var container = new Container();
 
-            container.Options.DefaultScopedLifestyle = new ThreadScopedLifestyle();
-
             //Bussines Logic controllers.
-            container.Register<DbContext>(() => new sacEntities(), Lifestyle.Scoped);
             container.Register<IRepository<tblChatroom>, SqlRepository<tblChatroom>>(Lifestyle.Transient);
             container.Register<IUnitOfWork, SqlUnitOfWork>(Lifestyle.Transient);
 

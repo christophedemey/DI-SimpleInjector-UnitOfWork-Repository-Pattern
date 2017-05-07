@@ -12,10 +12,10 @@ namespace RepositoryPattern
     public class SqlRepository<T> : IRepository<T> where T : class
     {
         private DbContext _entities = null;
-
-        public SqlRepository(DbContext context)
+        
+        public void Setup(DbContext context)
         {
-            _entities = context;
+            _entities = context;    
         }
 
         public void Add(T entity)

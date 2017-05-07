@@ -12,10 +12,14 @@ namespace RepositoryPattern.Repositories
     {
         private DbContext context = null;
 
-        public SqlUnitOfWork(DbContext dbContext, IRepository<tblChatroom> chatrooms)
+        public SqlUnitOfWork()
         {
-            context = dbContext;
-            Chatrooms = chatrooms;
+            this.context = new sacEntities();
+
+            SqlRepository<tblChatroom> chatRooms = new SqlRepository<tblChatroom>();
+            chatRooms.Setup(context);
+
+            this.Chatrooms = chatRooms;
         }
 
         public IRepository<tblChatroom> Chatrooms { get; set; }
