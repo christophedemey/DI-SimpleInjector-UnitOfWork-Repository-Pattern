@@ -1,0 +1,12 @@
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\obj\Debug\RepositoryPattern.csprojResolveAssemblyReference.cache
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\RepositoryPattern.exe.config
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\RepositoryPattern.exe
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\RepositoryPattern.pdb
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\EntityFramework.dll
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\EntityFramework.xml
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\obj\Debug\RepositoryPattern.exe
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\obj\Debug\RepositoryPattern.pdb
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\SimpleInjector.dll
+C:\Users\christophedm\Desktop\RepositoryPatternTests\RepositoryPattern\RepositoryPattern\bin\Debug\SimpleInjector.xml

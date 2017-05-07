@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblAbonnementVerlenging">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GebruikersID" Type="Int32" Nullable="false" />
+    <Property Name="GroepID" Type="Int32" Nullable="false" />
+    <Property Name="RequestValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblGebruikers" Relationship="Self.GebruikersID_tblAbonnementVerlenging" FromRole="tblAbonnementVerlenging" ToRole="tblGebruikers" />
+  </EntityType>
+  <EntityType Name="tblChatMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChatroomId" Type="Int32" Nullable="false" />
+    <Property Name="SenderId" Type="Int32" Nullable="false" />
+    <Property Name="SenderMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SendTimeStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblChatRequests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChatRoomId" Type="Int32" Nullable="false" />
+    <Property Name="InviterId" Type="Int32" Nullable="false" />
+    <Property Name="InviterUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InvitedId" Type="Int32" Nullable="false" />
+    <Property Name="RequestedTimeStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Accepted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblChatroom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChatroomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDownloadState">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GebruikersId" Type="Int32" Nullable="false" />
+    <Property Name="GroepId" Type="Int32" Nullable="false" />
+    <Property Name="EventTime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DownloadId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventObj" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GroepID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblGebruikers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gebruikersnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HardwareID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LaatstAangemeld" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Blocked" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BlockedReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountExpires" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsAdmin" Type="Int32" Nullable="false" />
+    <Property Name="GroepID" Type="Int32" Nullable="false" />
+    <Property Name="Activated" Type="Int32" Nullable="false" />
+    <Property Name="Emailadres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Web_Wachtwoord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GebruikerImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="tblAbonnementVerlenging" Relationship="Self.GebruikersID_tblAbonnementVerlenging" FromRole="tblGebruikers" ToRole="tblAbonnementVerlenging" />
+    <NavigationProperty Name="tblGroepen" Relationship="Self.GroepID_GebruikersID_Link" FromRole="tblGebruikers" ToRole="tblGroepen" />
+  </EntityType>
+  <EntityType Name="tblGebruikersLiveTick">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GebruikersId" Type="Int32" Nullable="false" />
+    <Property Name="LastLiveTick" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblGroepen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServerURI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServerUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServerPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GroepNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GroepBeheerderID" Type="Int32" Nullable="false" />
+    <Property Name="GroepExpires" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblGebruikers" Relationship="Self.GroepID_GebruikersID_Link" FromRole="tblGroepen" ToRole="tblGebruikers" />
+  </EntityType>
+  <EntityType Name="tblSpotnetDownload">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpotnetPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpotnetFilesize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpotnetExeFilesize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUpdateFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URIFilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileExpectedSize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUpdateInnerVersion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InnerVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VersionData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDatabaseDownload">
+    <Key>
+      <PropertyRef Name="DatabaseSize" />
+      <PropertyRef Name="FileName" />
+    </Key>
+    <Property Name="DatabaseSize" Type="Int64" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblIpData">
+    <Key>
+      <PropertyRef Name="GebruikerId" />
+      <PropertyRef Name="GroepId" />
+      <PropertyRef Name="IpAddress" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="GebruikerId" Type="Int32" Nullable="false" />
+    <Property Name="GroepId" Type="Int32" Nullable="false" />
+    <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TimeStamp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SendID" />
+      <PropertyRef Name="ReceiveID" />
+      <PropertyRef Name="Message" />
+      <PropertyRef Name="Tijdstip" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SendID" Type="Int32" Nullable="false" />
+    <Property Name="ReceiveID" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tijdstip" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblSabState">
+    <Key>
+      <PropertyRef Name="GebruikerId" />
+      <PropertyRef Name="XMLState" />
+    </Key>
+    <Property Name="GebruikerId" Type="Int32" Nullable="false" />
+    <Property Name="XMLState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSpotnet">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="GebruikersID" />
+      <PropertyRef Name="GroepID" />
+      <PropertyRef Name="SpotnetGebruikStart" />
+      <PropertyRef Name="SpotnetGebruikStop" />
+      <PropertyRef Name="SpotnetActive" />
+      <PropertyRef Name="SpotnetHartBeat" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GebruikersID" Type="Int32" Nullable="false" />
+    <Property Name="GroepID" Type="Int32" Nullable="false" />
+    <Property Name="SpotnetGebruikStart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpotnetGebruikStop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpotnetActive" Type="Int32" Nullable="false" />
+    <Property Name="SpotnetHartBeat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="GebruikersID_tblAbonnementVerlenging">
+    <End Role="tblGebruikers" Type="Self.tblGebruikers" Multiplicity="1" />
+    <End Role="tblAbonnementVerlenging" Type="Self.tblAbonnementVerlenging" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGebruikers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAbonnementVerlenging">
+        <PropertyRef Name="GebruikersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GroepID_GebruikersID_Link">
+    <End Role="tblGroepen" Type="Self.tblGroepen" Multiplicity="1" />
+    <End Role="tblGebruikers" Type="Self.tblGebruikers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGroepen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblGebruikers">
+        <PropertyRef Name="GroepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sacEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tblAbonnementVerlenging" EntityType="Self.tblAbonnementVerlenging" />
+    <EntitySet Name="tblChatMessages" EntityType="Self.tblChatMessages" />
+    <EntitySet Name="tblChatRequests" EntityType="Self.tblChatRequests" />
+    <EntitySet Name="tblChatroom" EntityType="Self.tblChatroom" />
+    <EntitySet Name="tblDownloadState" EntityType="Self.tblDownloadState" />
+    <EntitySet Name="tblEvents" EntityType="Self.tblEvents" />
+    <EntitySet Name="tblGebruikers" EntityType="Self.tblGebruikers" />
+    <EntitySet Name="tblGebruikersLiveTick" EntityType="Self.tblGebruikersLiveTick" />
+    <EntitySet Name="tblGroepen" EntityType="Self.tblGroepen" />
+    <EntitySet Name="tblSpotnetDownload" EntityType="Self.tblSpotnetDownload" />
+    <EntitySet Name="tblUpdateFiles" EntityType="Self.tblUpdateFiles" />
+    <EntitySet Name="tblUpdateInnerVersion" EntityType="Self.tblUpdateInnerVersion" />
+    <EntitySet Name="tblDatabaseDownload" EntityType="Self.tblDatabaseDownload" />
+    <EntitySet Name="tblIpData" EntityType="Self.tblIpData" />
+    <EntitySet Name="tblMessages" EntityType="Self.tblMessages" />
+    <EntitySet Name="tblSabState" EntityType="Self.tblSabState" />
+    <EntitySet Name="tblSpotnet" EntityType="Self.tblSpotnet" />
+    <AssociationSet Name="GebruikersID_tblAbonnementVerlenging" Association="Self.GebruikersID_tblAbonnementVerlenging">
+      <End Role="tblGebruikers" EntitySet="tblGebruikers" />
+      <End Role="tblAbonnementVerlenging" EntitySet="tblAbonnementVerlenging" />
+    </AssociationSet>
+    <AssociationSet Name="GroepID_GebruikersID_Link" Association="Self.GroepID_GebruikersID_Link">
+      <End Role="tblGroepen" EntitySet="tblGroepen" />
+      <End Role="tblGebruikers" EntitySet="tblGebruikers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

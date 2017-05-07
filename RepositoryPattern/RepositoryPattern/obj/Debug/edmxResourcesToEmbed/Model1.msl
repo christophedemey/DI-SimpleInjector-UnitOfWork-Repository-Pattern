@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sacModelStoreContainer" CdmEntityContainer="sacEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="sacModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAbonnementVerlenging">
+      <EntityTypeMapping TypeName="sacModel.tblAbonnementVerlenging">
+        <MappingFragment StoreEntitySet="tblAbonnementVerlenging">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GebruikersID" ColumnName="GebruikersID" />
+          <ScalarProperty Name="GroepID" ColumnName="GroepID" />
+          <ScalarProperty Name="RequestValue" ColumnName="RequestValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblChatMessages">
+      <EntityTypeMapping TypeName="sacModel.tblChatMessages">
+        <MappingFragment StoreEntitySet="tblChatMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChatroomId" ColumnName="ChatroomId" />
+          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+          <ScalarProperty Name="SenderMessage" ColumnName="SenderMessage" />
+          <ScalarProperty Name="SendTimeStamp" ColumnName="SendTimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblChatRequests">
+      <EntityTypeMapping TypeName="sacModel.tblChatRequests">
+        <MappingFragment StoreEntitySet="tblChatRequests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChatRoomId" ColumnName="ChatRoomId" />
+          <ScalarProperty Name="InviterId" ColumnName="InviterId" />
+          <ScalarProperty Name="InviterUsername" ColumnName="InviterUsername" />
+          <ScalarProperty Name="InvitedId" ColumnName="InvitedId" />
+          <ScalarProperty Name="RequestedTimeStamp" ColumnName="RequestedTimeStamp" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblChatroom">
+      <EntityTypeMapping TypeName="sacModel.tblChatroom">
+        <MappingFragment StoreEntitySet="tblChatroom">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChatroomName" ColumnName="ChatroomName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDownloadState">
+      <EntityTypeMapping TypeName="sacModel.tblDownloadState">
+        <MappingFragment StoreEntitySet="tblDownloadState">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GebruikersId" ColumnName="GebruikersId" />
+          <ScalarProperty Name="GroepId" ColumnName="GroepId" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="DownloadId" ColumnName="DownloadId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEvents">
+      <EntityTypeMapping TypeName="sacModel.tblEvents">
+        <MappingFragment StoreEntitySet="tblEvents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventObj" ColumnName="EventObj" />
+          <ScalarProperty Name="GroepID" ColumnName="GroepID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGebruikers">
+      <EntityTypeMapping TypeName="sacModel.tblGebruikers">
+        <MappingFragment StoreEntitySet="tblGebruikers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Gebruikersnaam" ColumnName="Gebruikersnaam" />
+          <ScalarProperty Name="HardwareID" ColumnName="HardwareID" />
+          <ScalarProperty Name="LaatstAangemeld" ColumnName="LaatstAangemeld" />
+          <ScalarProperty Name="Blocked" ColumnName="Blocked" />
+          <ScalarProperty Name="BlockedReason" ColumnName="BlockedReason" />
+          <ScalarProperty Name="AccountExpires" ColumnName="AccountExpires" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="GroepID" ColumnName="GroepID" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+          <ScalarProperty Name="Web_Wachtwoord" ColumnName="Web_Wachtwoord" />
+          <ScalarProperty Name="GebruikerImage" ColumnName="GebruikerImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGebruikersLiveTick">
+      <EntityTypeMapping TypeName="sacModel.tblGebruikersLiveTick">
+        <MappingFragment StoreEntitySet="tblGebruikersLiveTick">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GebruikersId" ColumnName="GebruikersId" />
+          <ScalarProperty Name="LastLiveTick" ColumnName="LastLiveTick" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGroepen">
+      <EntityTypeMapping TypeName="sacModel.tblGroepen">
+        <MappingFragment StoreEntitySet="tblGroepen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServerURI" ColumnName="ServerURI" />
+          <ScalarProperty Name="ServerUsername" ColumnName="ServerUsername" />
+          <ScalarProperty Name="ServerPassword" ColumnName="ServerPassword" />
+          <ScalarProperty Name="GroepNaam" ColumnName="GroepNaam" />
+          <ScalarProperty Name="GroepBeheerderID" ColumnName="GroepBeheerderID" />
+          <ScalarProperty Name="GroepExpires" ColumnName="GroepExpires" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSpotnetDownload">
+      <EntityTypeMapping TypeName="sacModel.tblSpotnetDownload">
+        <MappingFragment StoreEntitySet="tblSpotnetDownload">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpotnetPath" ColumnName="SpotnetPath" />
+          <ScalarProperty Name="SpotnetFilesize" ColumnName="SpotnetFilesize" />
+          <ScalarProperty Name="SpotnetExeFilesize" ColumnName="SpotnetExeFilesize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUpdateFiles">
+      <EntityTypeMapping TypeName="sacModel.tblUpdateFiles">
+        <MappingFragment StoreEntitySet="tblUpdateFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="URIFilePath" ColumnName="URIFilePath" />
+          <ScalarProperty Name="FileExpectedSize" ColumnName="FileExpectedSize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUpdateInnerVersion">
+      <EntityTypeMapping TypeName="sacModel.tblUpdateInnerVersion">
+        <MappingFragment StoreEntitySet="tblUpdateInnerVersion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InnerVersion" ColumnName="InnerVersion" />
+          <ScalarProperty Name="VersionData" ColumnName="VersionData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDatabaseDownload">
+      <EntityTypeMapping TypeName="sacModel.tblDatabaseDownload">
+        <MappingFragment StoreEntitySet="tblDatabaseDownload">
+          <ScalarProperty Name="DatabaseSize" ColumnName="DatabaseSize" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblIpData">
+      <EntityTypeMapping TypeName="sacModel.tblIpData">
+        <MappingFragment StoreEntitySet="tblIpData">
+          <ScalarProperty Name="GebruikerId" ColumnName="GebruikerId" />
+          <ScalarProperty Name="GroepId" ColumnName="GroepId" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMessages">
+      <EntityTypeMapping TypeName="sacModel.tblMessages">
+        <MappingFragment StoreEntitySet="tblMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SendID" ColumnName="SendID" />
+          <ScalarProperty Name="ReceiveID" ColumnName="ReceiveID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Tijdstip" ColumnName="Tijdstip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSabState">
+      <EntityTypeMapping TypeName="sacModel.tblSabState">
+        <MappingFragment StoreEntitySet="tblSabState">
+          <ScalarProperty Name="GebruikerId" ColumnName="GebruikerId" />
+          <ScalarProperty Name="XMLState" ColumnName="XMLState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSpotnet">
+      <EntityTypeMapping TypeName="sacModel.tblSpotnet">
+        <MappingFragment StoreEntitySet="tblSpotnet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GebruikersID" ColumnName="GebruikersID" />
+          <ScalarProperty Name="GroepID" ColumnName="GroepID" />
+          <ScalarProperty Name="SpotnetGebruikStart" ColumnName="SpotnetGebruikStart" />
+          <ScalarProperty Name="SpotnetGebruikStop" ColumnName="SpotnetGebruikStop" />
+          <ScalarProperty Name="SpotnetActive" ColumnName="SpotnetActive" />
+          <ScalarProperty Name="SpotnetHartBeat" ColumnName="SpotnetHartBeat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

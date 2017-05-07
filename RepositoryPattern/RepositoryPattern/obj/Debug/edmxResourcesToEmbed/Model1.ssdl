@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sacModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblAbonnementVerlenging">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GebruikersID" Type="int" Nullable="false" />
+    <Property Name="GroepID" Type="int" Nullable="false" />
+    <Property Name="RequestValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblChatMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChatroomId" Type="int" Nullable="false" />
+    <Property Name="SenderId" Type="int" Nullable="false" />
+    <Property Name="SenderMessage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SendTimeStamp" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblChatRequests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChatRoomId" Type="int" Nullable="false" />
+    <Property Name="InviterId" Type="int" Nullable="false" />
+    <Property Name="InviterUsername" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InvitedId" Type="int" Nullable="false" />
+    <Property Name="RequestedTimeStamp" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Accepted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblChatroom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChatroomName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sac.sac.tblDatabaseDownload' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblDatabaseDownload">
+    <Key>
+      <PropertyRef Name="DatabaseSize" />
+      <PropertyRef Name="FileName" />
+    </Key>
+    <Property Name="DatabaseSize" Type="bigint" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDownloadState">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GebruikersId" Type="int" Nullable="false" />
+    <Property Name="GroepId" Type="int" Nullable="false" />
+    <Property Name="EventTime" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DownloadId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventObj" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GroepID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblGebruikers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gebruikersnaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HardwareID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LaatstAangemeld" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Blocked" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="BlockedReason" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AccountExpires" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsAdmin" Type="int" Nullable="false" />
+    <Property Name="GroepID" Type="int" Nullable="false" />
+    <Property Name="Activated" Type="int" Nullable="false" />
+    <Property Name="Emailadres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Web_Wachtwoord" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GebruikerImage" Type="image" />
+  </EntityType>
+  <EntityType Name="tblGebruikersLiveTick">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GebruikersId" Type="int" Nullable="false" />
+    <Property Name="LastLiveTick" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblGroepen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServerURI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ServerUsername" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ServerPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GroepNaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GroepBeheerderID" Type="int" Nullable="false" />
+    <Property Name="GroepExpires" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sac.sac.tblIpData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblIpData">
+    <Key>
+      <PropertyRef Name="GebruikerId" />
+      <PropertyRef Name="GroepId" />
+      <PropertyRef Name="IpAddress" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="GebruikerId" Type="int" Nullable="false" />
+    <Property Name="GroepId" Type="int" Nullable="false" />
+    <Property Name="IpAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeStamp" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sac.sac.tblMessages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SendID" />
+      <PropertyRef Name="ReceiveID" />
+      <PropertyRef Name="Message" />
+      <PropertyRef Name="Tijdstip" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SendID" Type="int" Nullable="false" />
+    <Property Name="ReceiveID" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tijdstip" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sac.sac.tblSabState' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblSabState">
+    <Key>
+      <PropertyRef Name="GebruikerId" />
+      <PropertyRef Name="XMLState" />
+    </Key>
+    <Property Name="GebruikerId" Type="int" Nullable="false" />
+    <Property Name="XMLState" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sac.sac.tblSpotnet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblSpotnet">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="GebruikersID" />
+      <PropertyRef Name="GroepID" />
+      <PropertyRef Name="SpotnetGebruikStart" />
+      <PropertyRef Name="SpotnetGebruikStop" />
+      <PropertyRef Name="SpotnetActive" />
+      <PropertyRef Name="SpotnetHartBeat" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GebruikersID" Type="int" Nullable="false" />
+    <Property Name="GroepID" Type="int" Nullable="false" />
+    <Property Name="SpotnetGebruikStart" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SpotnetGebruikStop" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SpotnetActive" Type="int" Nullable="false" />
+    <Property Name="SpotnetHartBeat" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSpotnetDownload">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpotnetPath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SpotnetFilesize" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SpotnetExeFilesize" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUpdateFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URIFilePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FileExpectedSize" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUpdateInnerVersion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InnerVersion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VersionData" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="GebruikersID_tblAbonnementVerlenging">
+    <End Role="tblGebruikers" Type="Self.tblGebruikers" Multiplicity="1" />
+    <End Role="tblAbonnementVerlenging" Type="Self.tblAbonnementVerlenging" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGebruikers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAbonnementVerlenging">
+        <PropertyRef Name="GebruikersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GroepID_GebruikersID_Link">
+    <End Role="tblGroepen" Type="Self.tblGroepen" Multiplicity="1" />
+    <End Role="tblGebruikers" Type="Self.tblGebruikers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGroepen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblGebruikers">
+        <PropertyRef Name="GroepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sacModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAbonnementVerlenging" EntityType="Self.tblAbonnementVerlenging" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblChatMessages" EntityType="Self.tblChatMessages" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblChatRequests" EntityType="Self.tblChatRequests" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblChatroom" EntityType="Self.tblChatroom" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblDownloadState" EntityType="Self.tblDownloadState" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblEvents" EntityType="Self.tblEvents" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblGebruikers" EntityType="Self.tblGebruikers" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblGebruikersLiveTick" EntityType="Self.tblGebruikersLiveTick" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblGroepen" EntityType="Self.tblGroepen" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblSpotnetDownload" EntityType="Self.tblSpotnetDownload" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblUpdateFiles" EntityType="Self.tblUpdateFiles" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblUpdateInnerVersion" EntityType="Self.tblUpdateInnerVersion" Schema="sac" store:Type="Tables" />
+    <EntitySet Name="tblDatabaseDownload" EntityType="Self.tblDatabaseDownload" store:Type="Tables" store:Schema="sac">
+      <DefiningQuery>SELECT 
+    [tblDatabaseDownload].[DatabaseSize] AS [DatabaseSize], 
+    [tblDatabaseDownload].[FileName] AS [FileName]
+    FROM [sac].[tblDatabaseDownload] AS [tblDatabaseDownload]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblIpData" EntityType="Self.tblIpData" store:Type="Tables" store:Schema="sac">
+      <DefiningQuery>SELECT 
+    [tblIpData].[GebruikerId] AS [GebruikerId], 
+    [tblIpData].[GroepId] AS [GroepId], 
+    [tblIpData].[IpAddress] AS [IpAddress], 
+    [tblIpData].[TimeStamp] AS [TimeStamp]
+    FROM [sac].[tblIpData] AS [tblIpData]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblMessages" EntityType="Self.tblMessages" store:Type="Tables" store:Schema="sac">
+      <DefiningQuery>SELECT 
+    [tblMessages].[Id] AS [Id], 
+    [tblMessages].[SendID] AS [SendID], 
+    [tblMessages].[ReceiveID] AS [ReceiveID], 
+    [tblMessages].[Message] AS [Message], 
+    [tblMessages].[Tijdstip] AS [Tijdstip]
+    FROM [sac].[tblMessages] AS [tblMessages]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblSabState" EntityType="Self.tblSabState" store:Type="Tables" store:Schema="sac">
+      <DefiningQuery>SELECT 
+    [tblSabState].[GebruikerId] AS [GebruikerId], 
+    [tblSabState].[XMLState] AS [XMLState]
+    FROM [sac].[tblSabState] AS [tblSabState]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblSpotnet" EntityType="Self.tblSpotnet" store:Type="Tables" store:Schema="sac">
+      <DefiningQuery>SELECT 
+    [tblSpotnet].[Id] AS [Id], 
+    [tblSpotnet].[GebruikersID] AS [GebruikersID], 
+    [tblSpotnet].[GroepID] AS [GroepID], 
+    [tblSpotnet].[SpotnetGebruikStart] AS [SpotnetGebruikStart], 
+    [tblSpotnet].[SpotnetGebruikStop] AS [SpotnetGebruikStop], 
+    [tblSpotnet].[SpotnetActive] AS [SpotnetActive], 
+    [tblSpotnet].[SpotnetHartBeat] AS [SpotnetHartBeat]
+    FROM [sac].[tblSpotnet] AS [tblSpotnet]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="GebruikersID_tblAbonnementVerlenging" Association="Self.GebruikersID_tblAbonnementVerlenging">
+      <End Role="tblGebruikers" EntitySet="tblGebruikers" />
+      <End Role="tblAbonnementVerlenging" EntitySet="tblAbonnementVerlenging" />
+    </AssociationSet>
+    <AssociationSet Name="GroepID_GebruikersID_Link" Association="Self.GroepID_GebruikersID_Link">
+      <End Role="tblGroepen" EntitySet="tblGroepen" />
+      <End Role="tblGebruikers" EntitySet="tblGebruikers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
